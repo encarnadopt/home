@@ -110,8 +110,8 @@ a {
 
 .hero-content {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 42px;
+  grid-template-columns: minmax(0, 760px);
+  gap: 24px;
   align-items: center;
   padding-top: 32px;
 }
@@ -183,7 +183,7 @@ h3 {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin: 28px 0;
+  margin: 24px 0;
 }
 
 .button {
@@ -623,15 +623,16 @@ h3 {
 .footer {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  gap: 8px 14px;
   flex-wrap: wrap;
-  padding: 0 24px 36px;
+  padding: 0 24px 18px;
   color: var(--paper);
+  font-size: 0.86rem;
 }
 
 .footer-links {
   display: flex;
-  gap: 14px;
+  gap: 8px 12px;
   flex-wrap: wrap;
 }
 
@@ -647,7 +648,12 @@ h3 {
   width: 100%;
   height: 1px;
   background: rgba(255, 244, 236, 0.12);
-  margin-bottom: 18px;
+  margin-bottom: 8px;
+}
+
+.footer p {
+  margin: 0;
+  line-height: 1.25;
 }
 
 .legal-page {
