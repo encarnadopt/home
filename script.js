@@ -8,20 +8,48 @@ document.querySelectorAll(".photo-carousel").forEach((carousel) => {
   const track = carousel.querySelector(".carousel-track");
   const previous = carousel.querySelector(".carousel-button-prev");
   const next = carousel.querySelector(".carousel-button-next");
-  const slides = Array.from(track?.querySelectorAll("img") || []);
+  const originalSlides = Array.from(track?.querySelectorAll("img") || []);
 
-  if (!track || !previous || !next || slides.length === 0) {
+  if (!track || !previous || !next || originalSlides.length === 0) {
     return;
   }
 
-  let activeIndex = 0;
+  const beforeClones = document.createDocumentFragment();
+  const afterClones = document.createDocumentFragment();
+
+  originalSlides.forEach((slide) => {
+    const beforeClone = slide.cloneNode(true);
+    const afterClone = slide.cloneNode(true);
+
+    beforeClone.setAttribute("aria-hidden", "true");
+    afterClone.setAttribute("aria-hidden", "true");
+    beforeClones.appendChild(beforeClone);
+    afterClones.appendChild(afterClone);
+  });
+
+  track.insertBefore(beforeClones, track.firstChild);
+  track.appendChild(afterClones);
+
+  const slides = Array.from(track.querySelectorAll("img"));
+  const slideCount = originalSlides.length;
+  let activeIndex = slideCount;
   let autoPlay;
   let scrollTimer;
 
-  const clampIndex = (index) => (index + slides.length) % slides.length;
+  const normalizeIndex = (index) => {
+    if (index < slideCount) {
+      return index + slideCount;
+    }
+
+    if (index >= slideCount * 2) {
+      return index - slideCount;
+    }
+
+    return index;
+  };
 
   const centerSlide = (index, behavior = "smooth") => {
-    activeIndex = clampIndex(index);
+    activeIndex = index;
     const slide = slides[activeIndex];
     const left = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
 
@@ -31,9 +59,17 @@ document.querySelectorAll(".photo-carousel").forEach((carousel) => {
     });
   };
 
+  const resetIfNeeded = () => {
+    const normalizedIndex = normalizeIndex(activeIndex);
+
+    if (normalizedIndex !== activeIndex) {
+      centerSlide(normalizedIndex, "auto");
+    }
+  };
+
   const updateActiveFromScroll = () => {
     const trackCenter = track.scrollLeft + track.clientWidth / 2;
-    let closestIndex = 0;
+    let closestIndex = slideCount;
     let closestDistance = Number.POSITIVE_INFINITY;
 
     slides.forEach((slide, index) => {
@@ -47,6 +83,7 @@ document.querySelectorAll(".photo-carousel").forEach((carousel) => {
     });
 
     activeIndex = closestIndex;
+    resetIfNeeded();
   };
 
   const goNext = () => {
@@ -91,6 +128,6 @@ document.querySelectorAll(".photo-carousel").forEach((carousel) => {
     window.setTimeout(resumeAutoPlay, 1200);
   });
 
-  centerSlide(0, "auto");
+  centerSlide(slideCount, "auto");
   resumeAutoPlay();
 });
