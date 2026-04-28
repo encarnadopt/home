@@ -1649,23 +1649,8 @@ h3 {
 
 /* Final about redesign */
 .about-redesign {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(28px, 5vw, 58px);
-  align-items: center;
-}
-
-.about-image-panel {
-  min-height: 380px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 244, 236, 0.16);
-  border-radius: 4px;
-  box-shadow: var(--shadow);
-}
-
-.about-image-panel img {
-  height: 100%;
-  object-fit: cover;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .about-redesign-copy {
@@ -1716,11 +1701,7 @@ h3 {
 
 @media (max-width: 900px) {
   .about-redesign {
-    grid-template-columns: 1fr;
-  }
-
-  .about-image-panel {
-    min-height: 280px;
+    max-width: 100%;
   }
 
   .about-strip {
