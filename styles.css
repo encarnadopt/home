@@ -1,16 +1,17 @@
 :root {
-  --bg: #2a0d0d;
-  --surface: #371212;
-  --surface-strong: #4d1817;
-  --ink: #1d120f;
-  --muted: #6e5952;
-  --paper: #fffaf2;
-  --brand: #8e1f1d;
-  --brand-deep: #4b0f10;
-  --accent: #d69a35;
-  --charcoal: #1d0d0c;
-  --line: rgba(29, 18, 15, 0.12);
-  --shadow: 0 24px 60px rgba(28, 13, 11, 0.16);
+  --bg: #050505;
+  --surface: #2f1606;
+  --surface-strong: #8a3f00;
+  --ink: #090705;
+  --muted: #7c6544;
+  --paper: #f4ddb4;
+  --brand: #8f4303;
+  --brand-deep: #050505;
+  --accent: #8d6b00;
+  --accent-bright: #c59212;
+  --charcoal: #050505;
+  --line: rgba(244, 221, 180, 0.16);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
 }
 
 * {
@@ -26,9 +27,9 @@ body {
   font-family: "Segoe UI", "Trebuchet MS", sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(214, 154, 53, 0.22), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(94, 34, 27, 0.18), transparent 26%),
-    linear-gradient(180deg, #2a0d0d 0%, #511617 18%, #321010 18.1%, #4d1817 58%, #240d0c 58.1%, #2b1111 100%);
+    radial-gradient(circle at top left, rgba(143, 67, 3, 0.26), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(141, 107, 0, 0.18), transparent 26%),
+    linear-gradient(180deg, #050505 0%, #301505 22%, #070604 22.1%, #8f4303 56%, #0a0804 56.1%, #050505 100%);
 }
 
 img {
@@ -53,8 +54,8 @@ a {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(28, 8, 8, 0.84) 0%, rgba(28, 8, 8, 0.62) 46%, rgba(28, 8, 8, 0.12) 100%),
-    radial-gradient(circle at top right, rgba(214, 154, 53, 0.16), transparent 30%);
+    linear-gradient(90deg, rgba(5, 5, 5, 0.9) 0%, rgba(47, 22, 6, 0.7) 48%, rgba(5, 5, 5, 0.18) 100%),
+    radial-gradient(circle at top right, rgba(141, 107, 0, 0.18), transparent 30%);
   pointer-events: none;
 }
 
@@ -199,8 +200,8 @@ h3 {
 
 .button-primary {
   background: var(--accent);
-  color: #2b140f;
-  box-shadow: 0 14px 30px rgba(214, 154, 53, 0.22);
+  color: #050505;
+  box-shadow: 0 14px 30px rgba(141, 107, 0, 0.24);
 }
 
 .button-secondary {
@@ -248,8 +249,8 @@ h3 {
   margin-top: 0;
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(214, 154, 53, 0.14);
-  border: 1px solid rgba(214, 154, 53, 0.24);
+  background: rgba(141, 107, 0, 0.2);
+  border: 1px solid rgba(244, 221, 180, 0.2);
   color: var(--paper);
   font-weight: 700;
   white-space: nowrap;
@@ -327,7 +328,7 @@ h3 {
 }
 
 .menu-card {
-  background: linear-gradient(180deg, rgba(55, 18, 18, 0.94), rgba(31, 10, 10, 0.94));
+  background: linear-gradient(180deg, rgba(47, 22, 6, 0.94), rgba(5, 5, 5, 0.94));
   border-radius: 26px;
   padding: 26px;
   color: var(--paper);
@@ -343,7 +344,7 @@ h3 {
 }
 
 .menu-card.featured {
-  background: linear-gradient(160deg, rgba(142, 31, 29, 0.98), rgba(75, 15, 16, 0.98));
+  background: linear-gradient(160deg, rgba(143, 67, 3, 0.98), rgba(5, 5, 5, 0.98));
   color: white;
 }
 
@@ -369,16 +370,16 @@ h3 {
 
 .story::before {
   background:
-    linear-gradient(180deg, rgba(64, 18, 17, 0.98), rgba(43, 13, 12, 0.98)),
-    radial-gradient(circle at bottom left, rgba(214, 154, 53, 0.12), transparent 34%);
+    linear-gradient(180deg, rgba(47, 22, 6, 0.98), rgba(5, 5, 5, 0.98)),
+    radial-gradient(circle at bottom left, rgba(141, 107, 0, 0.14), transparent 34%);
   border-top: 1px solid rgba(255, 244, 236, 0.08);
   border-bottom: 1px solid rgba(255, 244, 236, 0.08);
 }
 
 .gallery-section::before {
   background:
-    linear-gradient(180deg, rgba(37, 13, 12, 0.98), rgba(58, 16, 15, 0.96)),
-    radial-gradient(circle at top right, rgba(214, 154, 53, 0.11), transparent 30%);
+    linear-gradient(180deg, rgba(5, 5, 5, 0.98), rgba(47, 22, 6, 0.96)),
+    radial-gradient(circle at top right, rgba(143, 67, 3, 0.18), transparent 30%);
   border-top: 1px solid rgba(255, 244, 236, 0.08);
   border-bottom: 1px solid rgba(255, 244, 236, 0.06);
 }
@@ -389,16 +390,16 @@ h3 {
 
 .visit-section::before {
   background:
-    linear-gradient(180deg, rgba(43, 13, 12, 0.98), rgba(33, 11, 10, 0.98)),
-    radial-gradient(circle at top right, rgba(142, 31, 29, 0.24), transparent 32%);
+    linear-gradient(180deg, rgba(47, 22, 6, 0.98), rgba(5, 5, 5, 0.98)),
+    radial-gradient(circle at top right, rgba(141, 107, 0, 0.24), transparent 32%);
   border-top: 1px solid rgba(255, 244, 236, 0.08);
   border-bottom: 1px solid rgba(255, 244, 236, 0.08);
 }
 
 .menu-section::before {
   background:
-    linear-gradient(180deg, rgba(36, 11, 11, 0.97), rgba(74, 22, 21, 0.94)),
-    radial-gradient(circle at top right, rgba(214, 154, 53, 0.1), transparent 30%);
+    linear-gradient(180deg, rgba(5, 5, 5, 0.97), rgba(143, 67, 3, 0.9)),
+    radial-gradient(circle at top right, rgba(141, 107, 0, 0.14), transparent 30%);
 }
 
 .story > *,
@@ -439,7 +440,7 @@ h3 {
 }
 
 .story-point.featured {
-  background: rgba(142, 31, 29, 0.22);
+  background: rgba(143, 67, 3, 0.24);
   margin-inline: -18px;
   padding-inline: 18px;
 }
@@ -478,7 +479,7 @@ h3 {
   margin: 0;
   overflow: hidden;
   border-radius: 28px;
-  background: linear-gradient(180deg, rgba(55, 18, 18, 0.96), rgba(31, 10, 10, 0.96));
+  background: linear-gradient(180deg, rgba(47, 22, 6, 0.96), rgba(5, 5, 5, 0.96));
   position: relative;
 }
 
@@ -553,7 +554,7 @@ h3 {
   border: 1px solid rgba(255, 244, 236, 0.24);
   border-radius: 999px;
   color: var(--paper);
-  background: rgba(26, 8, 8, 0.82);
+  background: rgba(5, 5, 5, 0.86);
   cursor: pointer;
   transform: translateY(-50%);
 }
@@ -581,7 +582,7 @@ h3 {
   border-radius: 28px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
-  background: linear-gradient(180deg, rgba(55, 18, 18, 0.96), rgba(31, 10, 10, 0.96));
+  background: linear-gradient(180deg, rgba(47, 22, 6, 0.96), rgba(5, 5, 5, 0.96));
 }
 
 .map-card-link {
@@ -591,8 +592,8 @@ h3 {
   justify-content: space-between;
   padding: 30px;
   background:
-    linear-gradient(180deg, rgba(60, 20, 18, 0.96), rgba(29, 10, 10, 0.96)),
-    radial-gradient(circle at top right, rgba(214, 154, 53, 0.16), transparent 34%);
+    linear-gradient(180deg, rgba(47, 22, 6, 0.96), rgba(5, 5, 5, 0.96)),
+    radial-gradient(circle at top right, rgba(141, 107, 0, 0.18), transparent 34%);
 }
 
 .map-card-link h3 {
@@ -618,7 +619,7 @@ h3 {
   gap: 12px 16px;
   padding: 18px;
   border-radius: 8px;
-  background: linear-gradient(180deg, rgba(62, 18, 17, 0.96), rgba(31, 10, 10, 0.96));
+  background: linear-gradient(180deg, rgba(47, 22, 6, 0.96), rgba(5, 5, 5, 0.96));
   color: var(--paper);
   position: relative;
   overflow-wrap: anywhere;
@@ -632,7 +633,7 @@ h3 {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  border: 1px solid rgba(214, 154, 53, 0.12);
+  border: 1px solid rgba(244, 221, 180, 0.12);
   pointer-events: none;
 }
 
@@ -665,7 +666,7 @@ h3 {
   padding: 24px 24px 44px;
   color: var(--paper);
   background:
-    linear-gradient(90deg, rgba(28, 8, 8, 0.88), rgba(42, 13, 13, 0.68)),
+    linear-gradient(90deg, rgba(5, 5, 5, 0.9), rgba(47, 22, 6, 0.72)),
     url("assets/photos/burger-cut.jpg.tmp.jpg") center / cover;
 }
 
@@ -906,14 +907,14 @@ h3 {
   overflow: hidden;
   border: 1px solid rgba(255, 244, 236, 0.13);
   border-radius: 18px;
-  background: rgba(255, 244, 236, 0.13);
+  background: rgba(244, 221, 180, 0.13);
 }
 
 .about-notes p {
   min-height: 116px;
   margin: 0;
   padding: 20px;
-  background: rgba(28, 8, 8, 0.46);
+  background: rgba(5, 5, 5, 0.48);
   color: rgba(255, 244, 236, 0.78);
   line-height: 1.45;
 }
@@ -950,7 +951,7 @@ h3 {
   padding: 28px;
   border-radius: 28px;
   background:
-    linear-gradient(180deg, rgba(40, 9, 9, 0.12), rgba(45, 9, 9, 0.94)),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.18), rgba(47, 22, 6, 0.94)),
     url("assets/photos/burger-hands.jpg.tmp.jpg") center / cover;
   overflow: hidden;
 }
@@ -980,7 +981,7 @@ h3 {
 
 .menu-category {
   border-radius: 22px;
-  background: rgba(26, 8, 8, 0.72);
+  background: rgba(5, 5, 5, 0.72);
   overflow: hidden;
 }
 
@@ -1028,7 +1029,7 @@ h3 {
 }
 
 .menu-category.compact {
-  background: rgba(64, 18, 17, 0.74);
+  background: rgba(47, 22, 6, 0.76);
 }
 
 @media (max-width: 980px) {
@@ -1119,12 +1120,12 @@ h3 {
 
 .about-bars div {
   padding: 24px;
-  background: rgba(24, 7, 7, 0.42);
+  background: rgba(5, 5, 5, 0.44);
   border-right: 1px solid rgba(255, 244, 236, 0.14);
 }
 
 .about-bars div:nth-child(2) {
-  background: rgba(142, 31, 29, 0.22);
+  background: rgba(143, 67, 3, 0.26);
 }
 
 .about-bars div:last-child {
@@ -1157,8 +1158,8 @@ h3 {
 .paper-menu {
   overflow: hidden;
   border-radius: 18px;
-  background: #fff4df;
-  color: #2a0d0d;
+  background: var(--paper);
+  color: var(--ink);
   box-shadow: 0 26px 70px rgba(10, 4, 3, 0.34);
 }
 
@@ -1168,13 +1169,13 @@ h3 {
   gap: 18px;
   align-items: end;
   padding: 30px 34px;
-  background: #8e1f1d;
+  background: var(--brand);
   color: var(--paper);
 }
 
 .paper-menu-header .eyebrow {
   margin: 0;
-  color: #f3c16a;
+  color: var(--paper);
 }
 
 .paper-menu-header h2 {
@@ -1199,8 +1200,8 @@ h3 {
 
 .paper-menu-category {
   padding: 30px 34px;
-  border-right: 1px solid rgba(142, 31, 29, 0.2);
-  border-bottom: 1px solid rgba(142, 31, 29, 0.2);
+  border-right: 1px solid rgba(143, 67, 3, 0.22);
+  border-bottom: 1px solid rgba(143, 67, 3, 0.22);
 }
 
 .paper-menu-category:nth-child(2n) {
@@ -1209,16 +1210,16 @@ h3 {
 
 .paper-menu-category.extras {
   grid-column: 1 / -1;
-  background: #f1dfc2;
+  background: #ead4aa;
 }
 
 .paper-menu-category h3 {
   margin: 0 0 18px;
-  color: #8e1f1d;
+  color: var(--brand);
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(2.3rem, 4vw, 3.4rem);
   line-height: 0.9;
-  border-bottom: 3px solid #8e1f1d;
+  border-bottom: 3px solid var(--brand);
   padding-bottom: 12px;
 }
 
@@ -1238,13 +1239,13 @@ h3 {
 .paper-menu-item strong {
   display: block;
   margin-bottom: 5px;
-  color: #240d0c;
+  color: var(--ink);
   font-size: 1.16rem;
 }
 
 .paper-menu-item p {
   margin: 0;
-  color: rgba(42, 13, 13, 0.7);
+  color: rgba(9, 7, 5, 0.72);
   line-height: 1.45;
 }
 
@@ -1252,7 +1253,7 @@ h3 {
   min-width: 74px;
   padding: 8px 10px;
   border-radius: 999px;
-  background: #8e1f1d;
+  background: var(--brand);
   color: var(--paper);
   font-weight: 800;
   text-align: center;
@@ -1262,9 +1263,9 @@ h3 {
 .paper-menu-item.highlight {
   margin: 0 0 8px;
   padding: 18px;
-  border: 2px solid #8e1f1d;
+  border: 2px solid var(--brand);
   border-radius: 14px;
-  background: #f7d99b;
+  background: #ddbd78;
 }
 
 @media (max-width: 980px) {
@@ -1332,7 +1333,7 @@ h3 {
   padding: 34px 28px;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.76)),
-    #080808;
+    var(--bg);
   color: var(--paper);
 }
 
@@ -1382,7 +1383,7 @@ h3 {
 }
 
 .enc-menu-sheet {
-  background: #fff7e8;
+  background: var(--paper);
   color: #1c0c0a;
 }
 
@@ -1534,7 +1535,7 @@ h3 {
   padding: 24px;
   color: var(--paper);
   background:
-    linear-gradient(90deg, rgba(10, 3, 3, 0.96), rgba(75, 15, 16, 0.88)),
+    linear-gradient(90deg, rgba(5, 5, 5, 0.96), rgba(47, 22, 6, 0.88)),
     url("assets/photos/burger-cut.jpg.tmp.jpg") center / cover;
   position: relative;
   overflow: hidden;
@@ -1580,7 +1581,7 @@ h3 {
   border-radius: 28px;
   background:
     linear-gradient(180deg, rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.94)),
-    radial-gradient(circle at top right, rgba(142, 31, 29, 0.4), transparent 42%);
+    radial-gradient(circle at top right, rgba(143, 67, 3, 0.42), transparent 42%);
   box-shadow: 0 28px 80px rgba(5, 2, 2, 0.46);
 }
 
@@ -1658,7 +1659,7 @@ h3 {
   padding: 24px;
   color: var(--paper);
   background:
-    linear-gradient(90deg, rgba(17, 5, 5, 0.98), rgba(48, 12, 12, 0.94)),
+    linear-gradient(90deg, rgba(5, 5, 5, 0.98), rgba(47, 22, 6, 0.94)),
     url("assets/photos/burger-hands.jpg.tmp.jpg") center / cover;
 }
 
@@ -1708,7 +1709,7 @@ h3 {
   padding: clamp(24px, 4vw, 36px);
   border: 1px solid rgba(255, 244, 236, 0.16);
   border-radius: 28px;
-  background: rgba(18, 6, 6, 0.78);
+  background: rgba(5, 5, 5, 0.8);
   box-shadow: var(--shadow);
   backdrop-filter: blur(8px);
   align-self: center;
@@ -1808,7 +1809,7 @@ h3 {
   padding: clamp(20px, 3vw, 28px);
   border: 1px solid rgba(255, 244, 236, 0.14);
   border-radius: 12px;
-  background: rgba(24, 8, 8, 0.38);
+  background: rgba(5, 5, 5, 0.42);
   box-shadow: var(--shadow);
   overflow: hidden;
 }
@@ -1818,8 +1819,8 @@ h3 {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(160deg, rgba(142, 31, 29, 0.22), transparent 48%),
-    radial-gradient(circle at top right, rgba(214, 154, 53, 0.14), transparent 34%);
+    linear-gradient(160deg, rgba(143, 67, 3, 0.24), transparent 48%),
+    radial-gradient(circle at top right, rgba(141, 107, 0, 0.18), transparent 34%);
   pointer-events: none;
 }
 
