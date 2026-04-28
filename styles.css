@@ -508,20 +508,21 @@ h3 {
 .photo-carousel {
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .carousel-track {
-  display: grid;
-  grid-auto-columns: minmax(320px, 62%);
-  grid-auto-flow: column;
+  --slide-size: min(62vw, 520px);
+  display: flex;
   gap: 18px;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
-  padding: 2px max(44px, 19%) 14px;
+  -webkit-overflow-scrolling: touch;
+  padding: 2px max(44px, calc((100% - var(--slide-size)) / 2)) 14px;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  touch-action: pan-x;
+  touch-action: pan-x pan-y;
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -529,7 +530,8 @@ h3 {
 }
 
 .carousel-track img {
-  width: 100%;
+  flex: 0 0 var(--slide-size);
+  width: var(--slide-size);
   aspect-ratio: 1;
   object-fit: cover;
   border: 1px solid rgba(255, 244, 236, 0.14);
@@ -745,8 +747,7 @@ h3 {
   }
 
   .carousel-track {
-    grid-auto-columns: minmax(280px, 68%);
-    padding-inline: 16%;
+    --slide-size: min(68vw, 440px);
   }
 
   .info-panel {
@@ -815,10 +816,20 @@ h3 {
     padding: 14px;
   }
 
+  .photo-carousel {
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
   .carousel-track {
-    grid-auto-columns: minmax(82%, 82%);
+    --slide-size: 78vw;
     gap: 12px;
-    padding-inline: 9%;
+    padding-inline: calc((100% - var(--slide-size)) / 2);
+  }
+
+  .carousel-button {
+    display: none;
   }
 
   .info-panel .info-label {

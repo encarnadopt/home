@@ -8,44 +8,59 @@ document.querySelectorAll(".photo-carousel").forEach((carousel) => {
   const track = carousel.querySelector(".carousel-track");
   const previous = carousel.querySelector(".carousel-button-prev");
   const next = carousel.querySelector(".carousel-button-next");
+  const slides = Array.from(track?.querySelectorAll("img") || []);
 
-  if (!track || !previous || !next) {
+  if (!track || !previous || !next || slides.length === 0) {
     return;
   }
 
-  const getStep = () => {
-    const slide = track.querySelector("img");
-    if (!slide) {
-      return track.clientWidth * 0.82;
-    }
+  let activeIndex = 0;
+  let autoPlay;
+  let scrollTimer;
 
-    const styles = window.getComputedStyle(track);
-    const gap = Number.parseFloat(styles.columnGap || styles.gap || "0");
-    return slide.getBoundingClientRect().width + gap;
-  };
+  const clampIndex = (index) => (index + slides.length) % slides.length;
 
-  const scrollCarousel = (direction) => {
-    track.scrollBy({
-      left: direction * getStep(),
-      behavior: "smooth",
+  const centerSlide = (index, behavior = "smooth") => {
+    activeIndex = clampIndex(index);
+    const slide = slides[activeIndex];
+    const left = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
+
+    track.scrollTo({
+      left,
+      behavior,
     });
   };
 
-  const goNext = () => {
-    const maxScroll = track.scrollWidth - track.clientWidth - 4;
+  const updateActiveFromScroll = () => {
+    const trackCenter = track.scrollLeft + track.clientWidth / 2;
+    let closestIndex = 0;
+    let closestDistance = Number.POSITIVE_INFINITY;
 
-    if (track.scrollLeft >= maxScroll) {
-      track.scrollTo({ left: 0, behavior: "smooth" });
-      return;
-    }
+    slides.forEach((slide, index) => {
+      const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+      const distance = Math.abs(trackCenter - slideCenter);
 
-    scrollCarousel(1);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    activeIndex = closestIndex;
   };
 
-  previous.addEventListener("click", () => scrollCarousel(-1));
-  next.addEventListener("click", goNext);
+  const goNext = () => {
+    updateActiveFromScroll();
+    centerSlide(activeIndex + 1);
+  };
 
-  let autoPlay = window.setInterval(goNext, 3600);
+  const goPrevious = () => {
+    updateActiveFromScroll();
+    centerSlide(activeIndex - 1);
+  };
+
+  previous.addEventListener("click", goPrevious);
+  next.addEventListener("click", goNext);
 
   const pauseAutoPlay = () => {
     window.clearInterval(autoPlay);
@@ -56,8 +71,26 @@ document.querySelectorAll(".photo-carousel").forEach((carousel) => {
     autoPlay = window.setInterval(goNext, 3600);
   };
 
+  track.addEventListener(
+    "scroll",
+    () => {
+      window.clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(updateActiveFromScroll, 120);
+    },
+    { passive: true },
+  );
+
   carousel.addEventListener("mouseenter", pauseAutoPlay);
   carousel.addEventListener("mouseleave", resumeAutoPlay);
   carousel.addEventListener("touchstart", pauseAutoPlay, { passive: true });
-  carousel.addEventListener("touchend", resumeAutoPlay);
+  carousel.addEventListener("touchend", () => {
+    window.setTimeout(resumeAutoPlay, 1200);
+  });
+  carousel.addEventListener("pointerdown", pauseAutoPlay);
+  carousel.addEventListener("pointerup", () => {
+    window.setTimeout(resumeAutoPlay, 1200);
+  });
+
+  centerSlide(0, "auto");
+  resumeAutoPlay();
 });
