@@ -746,7 +746,7 @@ h3 {
   color: var(--paper);
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 0.9), rgba(47, 22, 6, 0.72)),
-    url("assets/photos/burger-cut.jpg.tmp.jpg") center / cover;
+    url("assets/photos/burger-cut-bg.jpg") center / cover;
 }
 
 .menu-hero-copy {
@@ -1097,7 +1097,7 @@ h3 {
   border-radius: 28px;
   background:
     linear-gradient(180deg, rgba(5, 5, 5, 0.18), rgba(47, 22, 6, 0.94)),
-    url("assets/photos/burger-hands.jpg.tmp.jpg") center / cover;
+    url("assets/photos/burger-hands-bg.jpg") center / cover;
   overflow: hidden;
 }
 
@@ -1681,7 +1681,7 @@ h3 {
   color: var(--paper);
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 0.96), rgba(47, 22, 6, 0.88)),
-    url("assets/photos/burger-cut.jpg.tmp.jpg") center / cover;
+    url("assets/photos/burger-cut-bg.jpg") center / cover;
   position: relative;
   overflow: hidden;
 }
@@ -1805,7 +1805,7 @@ h3 {
   color: var(--paper);
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 0.98), rgba(47, 22, 6, 0.94)),
-    url("assets/photos/burger-hands.jpg.tmp.jpg") center / cover;
+    url("assets/photos/burger-hands-bg.jpg") center / cover;
 }
 
 .work-content {
