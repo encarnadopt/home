@@ -85,7 +85,7 @@ a {
   justify-content: center;
   align-items: center;
   gap: 18px;
-  padding: 7px 14px;
+  padding: 7px 24px;
   border: 1px solid rgba(255, 244, 236, 0.14);
   border-radius: 999px;
   background: rgba(5, 5, 5, 0.78);
@@ -106,10 +106,12 @@ a {
 }
 
 .nav-links {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
-  justify-content: center;
-  gap: 14px;
+  justify-items: center;
+  gap: 0;
+  width: 100%;
   flex-wrap: nowrap;
   color: rgba(255, 245, 237, 0.82);
   font-size: 1.08rem;
@@ -118,8 +120,13 @@ a {
 }
 
 .nav-links a {
+  justify-self: center;
   padding-bottom: 4px;
   border-bottom: 1px solid transparent;
+}
+
+.nav-links a:last-child {
+  justify-self: end;
 }
 
 .nav-logo-link {
@@ -129,10 +136,9 @@ a {
   width: 30px;
   height: 30px;
   flex: 0 0 30px;
-  margin-right: 12px;
   padding: 0;
   border-bottom: 0;
-  transform: translateX(-10px);
+  justify-self: start;
 }
 
 .nav-logo-link img {
@@ -2112,24 +2118,22 @@ section,
   .nav {
     top: 8px;
     width: calc(100% - 20px);
-    padding: 6px 9px;
+    padding: 6px 12px;
     gap: 8px;
     flex-direction: row;
   }
 
   .nav-links {
-    gap: 8px;
+    gap: 0;
     flex-wrap: nowrap;
     white-space: nowrap;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
   }
 
   .nav-logo-link {
     width: 24px;
     height: 24px;
     flex-basis: 24px;
-    margin-right: 10px;
-    transform: translateX(-8px);
   }
 
   .nav-logo-link img {
