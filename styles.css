@@ -2120,7 +2120,7 @@ h3 {
 }
 
 .coming-soon-content {
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: end;
 }
 
