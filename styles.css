@@ -231,9 +231,32 @@ h3 {
 .hero-actions {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 14px;
   flex-wrap: wrap;
   margin: 24px 0;
+}
+
+.icon-link,
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(244, 221, 180, 0.22);
+  border-radius: 999px;
+  color: var(--paper);
+  background: rgba(5, 5, 5, 0.42);
+}
+
+.icon-link svg,
+.footer-instagram svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
 }
 
 .button {
@@ -764,6 +787,15 @@ h3 {
   padding-bottom: 2px;
 }
 
+.footer-address {
+  border-bottom: 1px solid rgba(255, 244, 236, 0.72);
+  padding-bottom: 2px;
+}
+
+.footer-instagram {
+  display: none;
+}
+
 .footer::before {
   content: "";
   display: block;
@@ -828,6 +860,20 @@ h3 {
   .section,
   .footer {
     padding-inline: 16px;
+  }
+
+  .story {
+    padding-bottom: 34px;
+  }
+
+  .gallery-section {
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+
+  .visit-section {
+    padding-top: 24px;
+    padding-bottom: 40px;
   }
 
   .nav {
@@ -913,6 +959,25 @@ h3 {
 
   .info-panel p {
     font-size: 0.8rem;
+  }
+
+  .footer {
+    justify-content: center;
+    gap: 8px 14px;
+    text-align: center;
+  }
+
+  .footer > p {
+    width: 100%;
+  }
+
+  .footer-instagram {
+    display: inline-flex;
+    margin: 0 auto 4px;
+  }
+
+  .footer-links {
+    justify-content: center;
   }
 
   .story-point {
