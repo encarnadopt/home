@@ -75,16 +75,27 @@ a {
 }
 
 .nav {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  z-index: 50;
+  width: min(1180px, calc(100% - 48px));
+  transform: translateX(-50%);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 24px;
-  padding: 12px 0 28px;
+  gap: 18px;
+  padding: 7px 14px;
+  border: 1px solid rgba(255, 244, 236, 0.14);
+  border-radius: 999px;
+  background: rgba(5, 5, 5, 0.78);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(16px);
   flex-wrap: nowrap;
 }
 
 .nav-home {
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .brand {
@@ -96,10 +107,12 @@ a {
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
   flex-wrap: nowrap;
   color: rgba(255, 245, 237, 0.82);
-  font-size: 1.05rem;
+  font-size: 0.96rem;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -107,6 +120,24 @@ a {
 .nav-links a {
   padding-bottom: 4px;
   border-bottom: 1px solid transparent;
+}
+
+.nav-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.nav-logo-link img {
+  display: block;
+  width: 42px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.52));
 }
 
 .nav-links a:hover {
@@ -118,7 +149,7 @@ a {
   grid-template-columns: minmax(0, 760px);
   gap: 24px;
   align-items: center;
-  padding-top: 32px;
+  padding-top: 76px;
 }
 
 .hero-logo {
@@ -2035,5 +2066,65 @@ h3 {
   .coming-soon-content {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+}
+
+/* Final fixed compact header overrides */
+section,
+#topo {
+  scroll-margin-top: 92px;
+}
+
+.menu-coming-soon .nav {
+  position: fixed;
+  z-index: 50;
+}
+
+.coming-soon-content,
+.work-content {
+  padding-top: 104px;
+}
+
+.legal-page {
+  padding-top: 120px;
+}
+
+@media (max-width: 640px) {
+  .nav {
+    top: 8px;
+    width: calc(100% - 20px);
+    padding: 6px 9px;
+    gap: 8px;
+    flex-direction: row;
+  }
+
+  .nav-links {
+    gap: 8px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    font-size: 0.72rem;
+  }
+
+  .nav-logo-link {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .nav-logo-link img {
+    width: 34px;
+  }
+
+  .hero-content {
+    padding-top: 72px;
+  }
+
+  .coming-soon-content,
+  .work-content {
+    padding-top: 92px;
+  }
+
+  .legal-page {
+    padding-top: 108px;
   }
 }
