@@ -107,7 +107,7 @@ a {
 
 .nav-links {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1.08fr 0.92fr 0.92fr 1.08fr;
   align-items: center;
   justify-items: center;
   gap: 0;
@@ -139,6 +139,7 @@ a {
   padding: 0;
   border-bottom: 0;
   justify-self: start;
+  transform: translateX(18px);
 }
 
 .nav-logo-link img {
@@ -155,9 +156,14 @@ a {
 .hero-content {
   display: grid;
   grid-template-columns: minmax(0, 760px);
+  justify-content: center;
   gap: 24px;
   align-items: center;
   padding-top: 76px;
+}
+
+.hero-copy {
+  text-align: center;
 }
 
 .hero-logo {
@@ -207,7 +213,7 @@ h3 {
 
 .hero-kicker {
   max-width: 34rem;
-  margin: 18px 0 0;
+  margin: 18px auto 0;
   font-size: 1.28rem;
   line-height: 1.35;
   color: rgba(255, 245, 237, 0.95);
@@ -223,7 +229,7 @@ h3 {
 
 .hero-text {
   max-width: 36rem;
-  margin: 18px 0 0;
+  margin: 18px auto 0;
   color: rgba(255, 245, 237, 0.74);
   font-size: 1rem;
 }
@@ -2208,6 +2214,7 @@ section,
     width: 24px;
     height: 24px;
     flex-basis: 24px;
+    transform: none;
   }
 
   .nav-logo-link img {
