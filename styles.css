@@ -112,7 +112,7 @@ a {
   gap: 14px;
   flex-wrap: nowrap;
   color: rgba(255, 245, 237, 0.82);
-  font-size: 0.96rem;
+  font-size: 1.08rem;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -126,16 +126,16 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  flex: 0 0 44px;
+  width: 35px;
+  height: 35px;
+  flex: 0 0 35px;
   padding: 0;
   border-bottom: 0;
 }
 
 .nav-logo-link img {
   display: block;
-  width: 42px;
+  width: 34px;
   height: auto;
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.52));
 }
@@ -153,7 +153,7 @@ a {
 }
 
 .hero-logo {
-  width: min(390px, 72vw);
+  width: min(351px, 65vw);
   margin: 18px 0 0;
 }
 
@@ -262,12 +262,12 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  margin-top: 26px;
-  width: min(480px, 100%);
+  gap: 10px;
+  margin-top: 20px;
+  width: min(440px, 100%);
   margin-left: auto;
   margin-right: auto;
-  padding: 14px 18px;
+  padding: 11px 12px;
   border: 1px solid rgba(255, 244, 236, 0.12);
   border-radius: 18px;
   background: rgba(255, 248, 241, 0.08);
@@ -278,10 +278,11 @@ h3 {
   margin: 0;
   color: rgba(255, 245, 237, 0.88);
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .location-copy {
-  transform: translateY(5px);
+  transform: none;
 }
 
 .location-link {
@@ -840,13 +841,31 @@ h3 {
   }
 
   .hero-logo {
-    width: min(82vw, 330px);
+    width: min(74vw, 297px);
     margin-inline: auto;
   }
 
   .hero-location {
-    flex-direction: column;
-    align-items: flex-start;
+    width: min(320px, 100%);
+    margin: 16px auto 0;
+    padding: 9px 10px;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+  }
+
+  .location-copy {
+    flex: 1;
+  }
+
+  .location-copy p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .location-link {
+    padding: 8px 10px;
+    font-size: 0.7rem;
   }
 
   h2 {
@@ -1898,10 +1917,7 @@ h3 {
   width: clamp(74px, 10vw, 112px);
   aspect-ratio: 1;
   object-fit: contain;
-  border-radius: 999px;
-  background: rgba(255, 250, 242, 0.94);
-  padding: 8px;
-  box-shadow: 0 16px 34px rgba(8, 3, 3, 0.24);
+  filter: drop-shadow(0 16px 24px rgba(8, 3, 3, 0.28));
 }
 
 .awards-list {
@@ -2102,17 +2118,17 @@ section,
     gap: 8px;
     flex-wrap: nowrap;
     white-space: nowrap;
-    font-size: 0.72rem;
+    font-size: 0.82rem;
   }
 
   .nav-logo-link {
-    width: 34px;
-    height: 34px;
-    flex-basis: 34px;
+    width: 27px;
+    height: 27px;
+    flex-basis: 27px;
   }
 
   .nav-logo-link img {
-    width: 34px;
+    width: 27px;
   }
 
   .hero-content {
