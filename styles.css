@@ -2118,16 +2118,25 @@ section,
   .nav {
     top: 8px;
     width: calc(100% - 20px);
-    padding: 6px 12px;
-    gap: 8px;
+    padding: 6px 24px;
+    gap: 0;
     flex-direction: row;
   }
 
   .nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 0;
+    width: 100%;
     flex-wrap: nowrap;
     white-space: nowrap;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
+  }
+
+  .nav-links a,
+  .nav-links a:last-child {
+    justify-self: auto;
   }
 
   .nav-logo-link {
