@@ -4,6 +4,69 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
+const cookieConsentKey = "encarnado-cookie-consent";
+
+const getStoredCookieConsent = () => {
+  try {
+    return localStorage.getItem(cookieConsentKey);
+  } catch {
+    return null;
+  }
+};
+
+const storeCookieConsent = (choice) => {
+  try {
+    localStorage.setItem(cookieConsentKey, choice);
+  } catch {
+    // The banner still closes when browser storage is unavailable.
+  }
+};
+
+const createCookieBanner = () => {
+  if (getStoredCookieConsent()) {
+    return;
+  }
+
+  const isEnglish = document.documentElement.lang.startsWith("en");
+  const banner = document.createElement("section");
+  banner.className = "cookie-banner";
+  banner.setAttribute("aria-label", isEnglish ? "Cookie notice" : "Aviso de cookies");
+
+  banner.innerHTML = `
+    <div class="cookie-copy">
+      <strong>${isEnglish ? "Cookie notice" : "Aviso de cookies"}</strong>
+      <p>${
+        isEnglish
+          ? "We use only essential technical storage to keep this website working properly. You can manage cookies in your browser settings."
+          : "Usamos apenas armazenamento técnico essencial para o bom funcionamento do site. Pode gerir os cookies nas definições do seu navegador."
+      }</p>
+    </div>
+    <div class="cookie-actions">
+      <a href="${isEnglish ? "cookie-policy-en.html" : "politica-cookies.html"}">${
+        isEnglish ? "Cookie Policy" : "Política de Cookies"
+      }</a>
+      <button class="cookie-button cookie-button-secondary" type="button" data-cookie-choice="rejected">${
+        isEnglish ? "Decline" : "Recusar"
+      }</button>
+      <button class="cookie-button cookie-button-primary" type="button" data-cookie-choice="accepted">${
+        isEnglish ? "Accept" : "Aceitar"
+      }</button>
+    </div>
+  `;
+
+  banner.querySelectorAll("[data-cookie-choice]").forEach((button) => {
+    button.addEventListener("click", () => {
+      storeCookieConsent(button.dataset.cookieChoice);
+      banner.classList.add("is-hidden");
+      window.setTimeout(() => banner.remove(), 220);
+    });
+  });
+
+  document.body.appendChild(banner);
+};
+
+createCookieBanner();
+
 document.querySelectorAll(".photo-carousel").forEach((carousel) => {
   const track = carousel.querySelector(".carousel-track");
   const previous = carousel.querySelector(".carousel-button-prev");
